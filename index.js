@@ -21,8 +21,6 @@ async function run() {
         await downloadArtifact.downloadArtifact(artifactId)
 
     } catch (error) {
-        core.setFailed(error.status)
-        core.setFailed(error.response)
         core.setFailed(error.message)
     }
 }
