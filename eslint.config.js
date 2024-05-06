@@ -1,4 +1,4 @@
-{
+module.exports = {
     "env": {
         "commonjs": true,
         "es2021": true,
@@ -9,6 +9,10 @@
     "parserOptions": {
         "ecmaVersion": 12
     },
-    "rules": {
-    }
+    "ignores": [
+        "dist/"
+    ],
+    "rules": {}
 }
+
+// If someone wants to figure this one...
