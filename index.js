@@ -3,9 +3,9 @@ const DownloadArtifact = require('./lib/download-artifact')
 
 async function run() {
     try {
-        const name = core.getInput('name', {required: true})
-        const path = core.getInput('path', {required: false})
-        const token = core.getInput('token', {required: true})
+        const name = core.getInput('name', { required: true })
+        const path = core.getInput('path', { required: false })
+        const token = core.getInput('token', { required: true })
 
         const downloadArtifact = new DownloadArtifact(token, path)
         downloadArtifact.init()
@@ -21,6 +21,8 @@ async function run() {
         await downloadArtifact.downloadArtifact(artifactId)
 
     } catch (error) {
+        core.setFailed(error.status)
+        core.setFailed(error.response)
         core.setFailed(error.message)
     }
 }
